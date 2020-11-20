@@ -1,0 +1,24 @@
+*{
+  margin : 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#sfondo-top{
+  background-color: #128C7E;
+  height: 25vh;
+}
+
+#sfondo-bottom{
+  background-color: lightgrey;
+  height: 75vh;
+}
+
+#container{
+  position: absolute;
+  top: 5vh;
+  left: 15vw;
+  height: 90vh;
+  width: 70vw;
+  background-color: white;
+}
