@@ -136,6 +136,14 @@
   margin-top: 2%;
 }
 
+.box-contatto:hover{
+  background-color: lightgrey;
+}
+
+.box-contatto:active{
+  background-color: grey;
+}
+
 .next-avatar{
   margin: 2% 38% 0 5%;
 }
@@ -167,6 +175,43 @@
 #chat{
   background-image: url(../img/mine.jpg);
   height: 66vh;
+  overflow: auto;
+}
+
+.mychat{
+  max-width: 50%;
+  height: auto;
+  background-color: #25D366;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  float: right;
+  clear: left;
+  margin: 2%;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.mychat p:last-child , .yourchat p:last-child{
+  color: grey;
+  font-size: 10px;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1%;
+}
+
+.yourchat{
+  max-width: 50%;
+  height: auto;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  float: left;
+  clear: right;
+  margin-left: 2%;
+  padding: 10px;
+  border-radius: 15px;
 }
 
 #bottom-chat{
