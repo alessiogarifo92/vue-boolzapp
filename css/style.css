@@ -64,7 +64,7 @@
 }
 
 .left img{
-  width: 20%;
+  width: 25%;
   height: 85%;
   border-radius: 50%;
   margin-right: 1%;
@@ -73,15 +73,71 @@
 #notifiche{
   background-color: deepskyblue;
   height: 14vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#notifiche i{
+  background-color: white;
+  border-radius: 50%;
+  color: deepskyblue;
+  padding:10px;
+  margin-right: 5%;
+}
+
+#notifiche a{
+  color: grey;
+  font-size: 12px;
 }
 
 #cerca-contatti{
   background-color: whitesmoke;
-  height: 10vh;
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#cerca-contatti input{
+  border: none;
+  width: 90%;
+  height: 80%;
+  text-align: center;
+}
+
+#cerca-contatti i{
+  position: absolute;
+  color: lightgrey;
+  left: 4%;
 }
 
 #contatti{
   height: 54vh;
+  overflow: auto;
+}
+
+.box-contatto{
+  display: flex;
+  justify-content: flex-start;
+  height: 25%;
+  border-bottom: 1px solid lightgrey;
+}
+
+.box-contatto img{
+  border-radius: 50%;
+  margin-top: 1%;
+  height: 90%;
+}
+
+.box-contatto p{
+  color: grey;
+  font-size: 12px;
+  margin-top: 2%;
+}
+
+.next-avatar{
+  margin: 2% 38% 0 5%;
 }
 
 /* impostazioni sez right */
@@ -100,7 +156,7 @@
 
 #top-chat > .left img{
   height: 80%;
-  width: 12%;
+  width: 17%;
 }
 
 .rimpicciolito{
@@ -116,4 +172,22 @@
 #bottom-chat{
   background-color: whitesmoke;
   height: 12vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#bottom-chat input{
+  width: 80%;
+  height: 80%;
+  border: none;
+}
+
+#bottom-chat i:first-child{
+  color: grey;
+  padding-left: 4%;
+}
+
+#bottom-chat i:last-child{
+  padding-right: 4%;
 }
