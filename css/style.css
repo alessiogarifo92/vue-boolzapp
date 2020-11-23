@@ -137,11 +137,11 @@
 }
 
 .box-contatto:hover{
-  background-color: lightgrey;
+  background-color: whitesmoke;
 }
 
-.box-contatto:active{
-  background-color: grey;
+.box-contatto:focus{
+  background-color: lightgrey;
 }
 
 .next-avatar{
