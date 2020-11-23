@@ -149,10 +149,15 @@
 }
 
 /* impostazioni sez right */
-#sez-right{
+.sez-right{
   display: flex;
   flex-direction: column;
   width: 60%;
+  display: none;
+}
+
+.sez-right.active{
+  display: block;
 }
 
 #top-chat{
@@ -173,7 +178,7 @@
 
 #chat{
   background-image: url(../img/mine.jpg);
-  height: 66vh;
+  height: calc(100% - (12vh + 70px));
   overflow: auto;
 }
 
@@ -226,6 +231,7 @@
   height: 80%;
   border: none;
   font-size: 15px;
+  padding-left: 30px;
 }
 
 #bottom-chat i:first-child{
