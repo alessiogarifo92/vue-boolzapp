@@ -179,13 +179,18 @@
 
               </div>
 
+              <div class="mychat" v-for = "(items,i) in chat">{{items}}</div>
+
+              <div class="yourchat" v-for = "(items,i) in rispostaFissa">{{items}}
+              </div>
+
             </div>
 
             <div id="bottom-chat">
 
               <i class="far fa-smile"></i>
 
-              <input type="text" name="" value="" placeholder="Scrivi un messaggio">
+              <input type="text" name="" value="" placeholder="Scrivi un messaggio" v-model = "addElement" @keyup.enter="addItem">
 
               <i class="fas fa-microphone"></i>
 
