@@ -242,3 +242,19 @@
 #bottom-chat i:last-child{
   padding-right: 4%;
 }
+
+.contenitore-mychat{
+  width: 100%;
+  height: auto;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.contenitore-yourchat{
+  width: 100%;
+  height: auto;
+}

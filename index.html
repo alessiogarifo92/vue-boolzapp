@@ -163,26 +163,37 @@
 
             <div id="chat">
 
-              <div class="mychat">
+              <div class="contenitore-mychat clearfix">
+                <div class="mychat">
 
-                <p>Lo sai che ha aperto una nuova pizzeria?</p>
+                  <p>Lo sai che ha aperto una nuova pizzeria?</p>
 
-                <p>20/11/2020 10:52:03</p>
+                  <p>20/11/2020 10:52:03</p>
 
-              </div>
-
-              <div class="yourchat">
-
-                <p>Si, ma preferirei andare al cinema</p>
-
-                <p>20/11/2020 10:52:03</p>
+                </div>
 
               </div>
 
-              <div class="mychat" v-for = "(items,i) in chat">{{items}}</div>
+              <div class="contenirore-yourchat clearfix">
+                <div class="yourchat">
 
-              <div class="yourchat" v-for = "(items,i) in rispostaFissa">{{items}}
+                  <p>Si, ma preferirei andare al cinema</p>
+
+                  <p>20/11/2020 10:52:03</p>
+
+                </div>
               </div>
+
+              <div class="contenirore-mychat clearfix">
+                <div class="mychat" v-for = "(items,i) in chat">{{items}}</div>
+              </div>
+
+
+              <div class="contenirore-yourchat clearfix">
+                <div class="yourchat" v-for = "(items,i) in rispostaFissa">{{items}}
+                </div>
+              </div>
+
 
             </div>
 
