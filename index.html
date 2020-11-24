@@ -87,7 +87,7 @@
 
           <!-- FINE SEZ LEFT -->
 
-          <!-- INIZIO SEZ RIGHT -->
+          <!-- INIZIO SEZ RIGHT DELLE CHAT -->
 
           <div class="sez-right" v-for="(contatti,index) in listaUtenti" :class="{active : index===activeEl}">
 
@@ -127,14 +127,16 @@
 
               <i class="far fa-smile"></i>
 
-              <input type="text" name="" value="" placeholder="Scrivi un messaggio">
-              <!--  v-model = "addElement" @keyup.enter="addItem" -->
-              <i class="fas fa-microphone"></i>
+              <!-- ins funzione keyup per inviare testo premendo invio collegando v-model del messaggio in messInviato -->
+              <input type="text" name="" value="" placeholder="Scrivi un messaggio" v-model="messInviato.messaggio" @keyup.enter="addElement">
+
+              <!-- al click su microfono invia testo scritto -->
+              <i class="fas fa-microphone" @click="addElement"></i>
 
             </div>
 
           </div>
-          <!--FINE SEZ MICHELE -->
+          <!-- FINE SEZ RIGHT DELLE CHAT -->
 
         </div>
 

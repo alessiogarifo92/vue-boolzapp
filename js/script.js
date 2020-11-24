@@ -3,14 +3,12 @@
 // con header con dati relativi a chat attiva;
 // relativa chat in elenco rimane selezionata
 
-// var app = new Vue({
-//   el : '#app',
-//   data : {
-//     activeEl : 0,
-//     chat : [],
-//     addElement : '',
-//     rispostaFissa: ''
-//   },
+// Per oggi saremo sulla milestone3, inserimento msg in chat e relativa risposta:
+// l’utente può scrivere nel campo di input in basso;
+// al click sull’invio succedono 2 cose: 1. il mio msg viene inviato alla chat relativa; 2. ottengo un msg di risposta automatico;
+// il msg di risposta non è istantaneo, ma viene dopo 1 secondo;
+// chiaramente tutto ciò viene agganciato/creato solo nella chat dove stò chattando;
+// quindi ogni chat avrà i proprio messaggi.
 
 var app = new Vue({
   el: "#app",
@@ -89,22 +87,37 @@ var app = new Vue({
          }
        ]
       },
-   ]
+   ],
+   messInviato : {
+     messaggio:"",
+     orario:"20/11/2020 10:52:03",
+     stato:"mychat"
+   },
+   rispostaFissa:{
+     messaggio:"ok...",
+     orario:"20/11/2020 10:52:03",
+     stato:"yourchat"
+   }
   },
 
   methods : {
+    // per cambiare con click l active el
     mostraChat : function (el) {
       this.activeEl = el;
-    }
+    },
+
+// MILESTONE 3
+
+    addElement: function (index) {
+      // imposto condizione che se messaggio inserito input diverso da vuoto allora pusha tutto else sottinteso non fa nulla
+      if (this.messInviato.messaggio !== "") {
+        // seleziono percorso per pushare oggetto messInviato alla sola chat attiva
+        this.listaUtenti[this.activeEl].chat.push({...this.messInviato});
+        // riporto messaggio di messInviato vuoto per azzerare input
+        this.messInviato.messaggio = "";
+        // array function per setTimeout 2 sec per risposta fissa (array function senno non riconoscerebbe this come elemento cod vue ma come elemento window quindi tutta la pagina)
+         setTimeout(() => this.listaUtenti[this.activeEl].chat.push({...this.rispostaFissa}), 2000);
+      }
+   }
   }
-  });
-  //   addItem(){
-  //     this.chat.push(this.addElement);
-  //     this.addElement = '';
-  //     // uso arrow function senno il this diventa su l intera window e this perde valore rispetto rispostaFissa
-  //      setTimeout(() => {
-  //         this.rispostaFissa='ok...'
-  //       }, 3000);
-  //   }
-  // }
-// });
+});
