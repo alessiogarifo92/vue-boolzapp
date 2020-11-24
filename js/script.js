@@ -119,5 +119,11 @@ var app = new Vue({
          setTimeout(() => this.listaUtenti[this.activeEl].chat.push({...this.rispostaFissa}), 2000);
       }
    }
+ },
+ // funzione per vedere scroll al pari del nuovo messaggio
+  updated: function () {
+    var container = document.querySelector("#chat");
+    var scrollHeight = container.scrollHeight;
+    container.scrollTop = scrollHeight;
   }
 });

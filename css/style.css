@@ -136,6 +136,14 @@
   margin-top: 2%;
 }
 
+
+.ultimo-msg{
+  width: 78px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .box-contatto:hover{
   background-color: whitesmoke;
 }
