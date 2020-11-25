@@ -188,6 +188,7 @@
   background-image: url(../img/mine.jpg);
   height: calc(100% - (12vh + 70px));
   overflow: auto;
+  /* display flex per fare unica chat per riga */
   display: flex;
   flex-direction: column;
 }
@@ -196,13 +197,13 @@
   max-width: 50%;
   height: auto;
   background-color: #25D366;
-    /* align self per gestire display flex chat e fare un unica chat per riga */
+    /* align self per gestire display flex chat e e mantenere a end */
   align-self: flex-end;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  float: right;
-  clear: left;
+  /* float: right;
+  clear: left; */
   margin: 2%;
   padding: 10px;
   border-radius: 15px;
@@ -220,13 +221,13 @@
   max-width: 50%;
   height: auto;
   background-color: white;
-  /* align self per gestire display flex chat e fare un unica chat per riga */
+  /* align self per gestire display flex chat e mantenere a start */
   align-self: flex-start;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  float: left;
-  clear: right;
+  /* float: left;
+  clear: right; */
   margin-left: 2%;
   margin-bottom: 2%;
   padding: 10px;

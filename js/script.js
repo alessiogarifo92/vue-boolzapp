@@ -1,19 +1,25 @@
-// Per oggi saremo sulla milestone2, chat differenziate:
+// Per oggi saremo sulla MILESTONE 2, chat differenziate:
 // cliccando sulla chat vedo quella corrispondente;
 // con header con dati relativi a chat attiva;
 // relativa chat in elenco rimane selezionata
 
-// Per oggi saremo sulla milestone3, inserimento msg in chat e relativa risposta:
+// Per oggi saremo sulla MILESTONE 3, inserimento msg in chat e relativa risposta:
 // l’utente può scrivere nel campo di input in basso;
 // al click sull’invio succedono 2 cose: 1. il mio msg viene inviato alla chat relativa; 2. ottengo un msg di risposta automatico;
 // il msg di risposta non è istantaneo, ma viene dopo 1 secondo;
 // chiaramente tutto ciò viene agganciato/creato solo nella chat dove stò chattando;
 // quindi ogni chat avrà i proprio messaggi.
 
+// Per oggi saremo sulla MILESTONE 4, filtro su listato chat attive:
+// l’utente può scrivere nel campo di input a sx;
+// alla digitazione, ad ogni carattere digitato il istato si aggiorna in base alla corrispondenza della stringa scritta nell’input, rispetto al nomeContatto/Chat.
+
+
 var app = new Vue({
   el: "#app",
   data: {
     activeEl:0,
+    searchContact: '',
     mioUtente:{
       nome:"Nome Utente",
       avatar:"img/avatar_2.jpg"
@@ -137,5 +143,15 @@ var app = new Vue({
     var container = document.querySelector("#chat");
     var scrollHeight = container.scrollHeight;
     container.scrollTop = scrollHeight;
+  },
+
+// MILESTONE 4
+// funzione per filtrare nome search bar
+  computed: {
+   listafiltr() {
+     return this.listaUtenti.filter( utente => {
+        return !this.searchContact || utente.nome.toLowerCase().indexOf(this.searchContact.toLowerCase()) > -1
+      })
+    }
   }
 });

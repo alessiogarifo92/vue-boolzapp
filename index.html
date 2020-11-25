@@ -58,14 +58,14 @@
 
             <div id="cerca-contatti">
 
-              <input type="text" name="" value="" placeholder="Cerca o inizia una nuova chat">
+              <input type="text" name="" value="" placeholder="Cerca o inizia una nuova chat"  v-model="searchContact">
               <i class="far fa-search"></i>
 
             </div>
 
             <div id="contatti">
-
-              <div class="box-contatto" tabindex="1" v-for="(contatti,index) in listaUtenti" :class="(index === activeEl) ? 'contatti active' : 'contatti'"  @click = "mostraChat(index)">
+              <!-- precedentemente v-for ="(contatti,index) in listaUtenti" ma per far funzionare computed bisogna sostituire con nome funz   -->
+              <div class="box-contatto" tabindex="1" v-for="(contatti,index) in listafiltr" :class="(index === activeEl) ? 'contatti active' : 'contatti'"  @click = "mostraChat(index)">
 
                 <img :src="contatti.avatar" alt="avatar contatti">
 
