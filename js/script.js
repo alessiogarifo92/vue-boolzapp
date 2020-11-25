@@ -113,10 +113,22 @@ var app = new Vue({
       if (this.messInviato.messaggio !== "") {
         // seleziono percorso per pushare oggetto messInviato alla sola chat attiva
         this.listaUtenti[this.activeEl].chat.push({...this.messInviato});
+        // altrimenti this.listaUtenti[this.activeEl].chat.push(
+      //   {
+      //     messaggio:"",
+      //     orario:"20/11/2020 10:52:03",
+      //     stato:"mychat"
+      //   }
+      // );
         // riporto messaggio di messInviato vuoto per azzerare input
         this.messInviato.messaggio = "";
         // array function per setTimeout 2 sec per risposta fissa (array function senno non riconoscerebbe this come elemento cod vue ma come elemento window quindi tutta la pagina)
          setTimeout(() => this.listaUtenti[this.activeEl].chat.push({...this.rispostaFissa}), 2000);
+         // altrimenti this.listaUtenti[this.activeEl].chat.push({
+         //   messaggio:"ok...",
+         //   orario:"20/11/2020 10:52:03",
+         //   stato:"yourchat"
+         // }), 2000);
       }
    }
  },
