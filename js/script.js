@@ -143,15 +143,5 @@ var app = new Vue({
     var container = document.querySelector("#chat");
     var scrollHeight = container.scrollHeight;
     container.scrollTop = scrollHeight;
-  },
-
-// MILESTONE 4
-// funzione per filtrare nome search bar
-  computed: {
-   listafiltr() {
-     return this.listaUtenti.filter( utente => {
-        return !this.searchContact || utente.nome.toLowerCase().indexOf(this.searchContact.toLowerCase()) > -1
-      })
-    }
   }
 });

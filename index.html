@@ -65,7 +65,9 @@
 
             <div id="contatti">
               <!-- precedentemente v-for ="(contatti,index) in listaUtenti" ma per far funzionare computed bisogna sostituire con nome funz   -->
-              <div class="box-contatto" tabindex="1" v-for="(contatti,index) in listafiltr" :class="(index === activeEl) ? 'contatti active' : 'contatti'"  @click = "mostraChat(index)">
+              <!-- MILESTONE 4 -->
+              <!-- ins v-model con searchContact in ascolto in script v-if perche condizione computed di prima filtrava contatti ma se cliccavo su contatto filtrato non si attivava la chat -->
+              <div class="box-contatto" tabindex="1" v-for="(contatti,index) in listaUtenti"   v-if="contatti.nome.toLowerCase().includes(searchContact.toLowerCase())" :class="(index === activeEl) ? 'contatti active' : 'contatti'"  @click = "mostraChat(index)">
 
                 <img :src="contatti.avatar" alt="avatar contatti">
 
