@@ -79,7 +79,7 @@
 
                 </div>
 
-                <p>{{contatti.data}}</p>
+                <p>{{contatti.chat[contatti.chat.length -1].orario}}</p>
 
               </div>
 
@@ -130,7 +130,7 @@
               <i class="far fa-smile"></i>
 
               <!-- ins funzione keyup per inviare testo premendo invio collegando v-model del messaggio in messInviato -->
-              <input type="text" name="" value="" placeholder="Scrivi un messaggio" v-model="messInviato.messaggio" @keyup.enter="addElement">
+              <input type="text" name="" value="" placeholder="Scrivi un messaggio" v-model="inputMessaggio" @keyup.enter="addElement">
 
               <!-- al click su microfono invia testo scritto -->
               <i class="fas fa-microphone" @click="addElement"></i>

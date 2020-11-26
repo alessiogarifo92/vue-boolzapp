@@ -20,6 +20,7 @@ var app = new Vue({
   data: {
     activeEl:0,
     searchContact: '',
+    inputMessaggio: '',
     mioUtente:{
       nome:"Nome Utente",
       avatar:"img/avatar_2.jpg"
@@ -93,17 +94,7 @@ var app = new Vue({
          }
        ]
       },
-   ],
-   messInviato : {
-     messaggio:"",
-     orario:"20/11/2020 10:52:03",
-     stato:"mychat"
-   },
-   rispostaFissa:{
-     messaggio:"ok...",
-     orario:"20/11/2020 10:52:03",
-     stato:"yourchat"
-   }
+   ]
   },
 
   methods : {
@@ -113,32 +104,33 @@ var app = new Vue({
     },
 
 // MILESTONE 3
+    addElement : function (index) {
+      if (this.inputMessaggio !== '') {
+        this.listaUtenti[this.activeEl].chat.push({
+          messaggio: this.inputMessaggio,
+          orario: this.getNow(),
+          stato:"mychat"
+        });
+        setTimeout(() => this.listaUtenti[this.activeEl].chat.push({
+          messaggio:'ok...',
+          orario: this.getNow(),
+          stato:"yourchat"
+        }), 2000);
 
-    addElement: function (index) {
-      // imposto condizione che se messaggio inserito input diverso da vuoto allora pusha tutto else sottinteso non fa nulla
-      if (this.messInviato.messaggio !== "") {
-        // seleziono percorso per pushare oggetto messInviato alla sola chat attiva
-        this.listaUtenti[this.activeEl].chat.push({...this.messInviato});
-        // altrimenti this.listaUtenti[this.activeEl].chat.push(
-      //   {
-      //     messaggio:"",
-      //     orario:"20/11/2020 10:52:03",
-      //     stato:"mychat"
-      //   }
-      // );
-        // riporto messaggio di messInviato vuoto per azzerare input
-        this.messInviato.messaggio = "";
-        // array function per setTimeout 2 sec per risposta fissa (array function senno non riconoscerebbe this come elemento cod vue ma come elemento window quindi tutta la pagina)
-         setTimeout(() => this.listaUtenti[this.activeEl].chat.push({...this.rispostaFissa}), 2000);
-         // altrimenti this.listaUtenti[this.activeEl].chat.push({
-         //   messaggio:"ok...",
-         //   orario:"20/11/2020 10:52:03",
-         //   stato:"yourchat"
-         // }), 2000);
+        this.inputMessaggio = '';
       }
-   }
- },
- // funzione per vedere scroll al pari del nuovo messaggio
+    },
+
+    getNow: function() {
+      const today = new Date();
+      const date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
+      const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      const dateTime = date +' '+ time;
+      return dateTime
+    }
+
+  },
+  // funzione per vedere scroll al pari del nuovo messaggio(funz solo con prima chat)
   updated: function () {
     var container = document.querySelector("#chat");
     var scrollHeight = container.scrollHeight;
