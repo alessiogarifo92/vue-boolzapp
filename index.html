@@ -115,11 +115,23 @@
 
             <div id="chat">
 
-              <div  v-for="messaggi in listaUtenti[activeEl].chat" :class=messaggi.stato>
+              <div  v-for="(messaggi,i) in listaUtenti[activeEl].chat" :class=messaggi.stato>
 
-                <p>{{messaggi.messaggio}}</p>
+                <div class="p-e-drop">
+                  <p>{{messaggi.messaggio}}</p>
+
+                  <i class="far fa-angle-down" @click = 'toggleDropDown(i)'>
+                    <ul class="dropNasc" :class = '{dropActive: messaggi.dropMenu}' @mouseleave = '{dropActive: ""}'>
+                      <li @click = 'cancMsg(i)'>Cancella messaggio</li>
+                      <li>Dettagli</li>
+                    </ul>
+                  </i>
+                </div>
+
 
                 <p>{{messaggi.orario}}</p>
+
+
 
               </div>
 

@@ -21,6 +21,7 @@ var app = new Vue({
     activeEl:0,
     searchContact: '',
     inputMessaggio: '',
+    dropdownMenu : false,
     mioUtente:{
       nome:"Nome Utente",
       avatar:"img/avatar_2.jpg"
@@ -34,12 +35,14 @@ var app = new Vue({
          {
            messaggio:"Lo sai che ha aperto una nuova pizzeria?",
            orario:"20/11/2020 10:52:03",
-           stato:"mychat"
+           stato:"mychat",
+           dropMenu:false
          },
          {
            messaggio:"Si, ma preferirei andare al cinema",
            orario:"20/11/2020 10:52:03",
-           stato:"yourchat"
+           stato:"yourchat",
+           dropMenu:false
          }
        ]
       },
@@ -51,12 +54,14 @@ var app = new Vue({
          {
            messaggio:"Cosa ti va da mangiare stasera?",
            orario:"20/11/2020 10:52:03",
-           stato:"mychat"
+           stato:"mychat",
+           dropMenu:false
          },
          {
            messaggio:"Sai cosa ci starebbe bene?...Una bella pizza!",
            orario:"20/11/2020 10:52:03",
-           stato:"yourchat"
+           stato:"yourchat",
+           dropMenu:false
          }
        ]
       },
@@ -68,12 +73,14 @@ var app = new Vue({
          {
            messaggio:"Hai visto il nuovo film di Avengers?",
            orario:"20/11/2020 10:52:03",
-           stato:"mychat"
+           stato:"mychat",
+           dropMenu:false
          },
          {
            messaggio:"Si e sto già fremendo per il prossimo capitolo!!!",
            orario:"20/11/2020 10:52:03",
-           stato:"yourchat"
+           stato:"yourchat",
+           dropMenu:false
          }
        ]
       },
@@ -85,12 +92,14 @@ var app = new Vue({
          {
            messaggio:"Ci sei per una corsetta oggi pomeriggio?",
            orario:"20/11/2020 10:52:03",
-           stato:"mychat"
+           stato:"mychat",
+           dropMenu:false
          },
          {
            messaggio:"Penso di no, non sto molto bene...",
            orario:"20/11/2020 10:52:03",
-           stato:"yourchat"
+           stato:"yourchat",
+           dropMenu:false
          }
        ]
       },
@@ -109,12 +118,14 @@ var app = new Vue({
         this.listaUtenti[this.activeEl].chat.push({
           messaggio: this.inputMessaggio,
           orario: this.getNow(),
-          stato:"mychat"
+          stato:"mychat",
+          dropMenu:false
         });
         setTimeout(() => this.listaUtenti[this.activeEl].chat.push({
           messaggio:'ok...',
           orario: this.getNow(),
-          stato:"yourchat"
+          stato:"yourchat",
+          dropMenu:false
         }), 2000);
 
         this.inputMessaggio = '';
@@ -127,6 +138,19 @@ var app = new Vue({
       const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
       const dateTime = date +' '+ time;
       return dateTime
+    },
+
+    toggleDropDown: function(i) {
+      // if (this.listaUtenti[this.activeEl].chat[i].dropMenu === false) {
+      //     this.listaUtenti[this.activeEl].chat[i].dropMenu = true;
+      // } else {
+      //     this.listaUtenti[this.activeEl].chat[i].dropMenu = false;
+      // }
+      this.listaUtenti[this.activeEl].chat[i].dropMenu = !this.listaUtenti[this.activeEl].chat[i].dropMenu
+    },
+
+    cancMsg: function(i) {
+      this.listaUtenti[this.activeEl].chat.splice(i, 1);
     }
 
   },

@@ -217,6 +217,50 @@
   margin-top: 1%;
 }
 
+.p-e-drop{
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.mychat i , .yourchat i{
+  color: black;
+  padding-left: 1px;
+  margin-left: 2px;
+  float: right;
+  position: relative;
+  top: 5px;
+}
+
+.mychat i:hover , .yourchat i:hover{
+  font-size: 18px;
+}
+
+.dropNasc{
+  display: none;
+  list-style: none;
+  position: absolute;
+  right : -19px;
+  background-color: white;
+  padding: 4px;
+  font-size: 14px;
+}
+
+.dropActive{
+  display: block;
+}
+
+.mychat .p-e-drop li{
+  border-bottom: 1px solid lightgrey;
+  width: max-content;
+  padding: 2px;
+}
+
+.yourchat .p-e-drop li{
+  border-bottom: 1px solid lightgrey;
+  width: max-content;
+}
+
 .yourchat{
   max-width: 50%;
   height: auto;
